@@ -58,6 +58,7 @@ body {
     text-align: center;
     background-color: rgba(139, 139, 139, 0.5);
     padding: 20px;
+    color: black;
   }
   
   .productHighlight {
@@ -67,6 +68,7 @@ body {
     align-items: center;
     background-color: rgba(139, 139, 139, 0.5);
     padding: 10px;
+    color: black;
   }
   
   .image {

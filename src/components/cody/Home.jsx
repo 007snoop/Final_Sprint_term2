@@ -1,6 +1,7 @@
 import React from "react";
 import "./styles/Home.css";
-import "../khoa/ProductList.jsx"
+import { Link } from "react-router-dom";
+
 
 const Home = () => {
   return (
@@ -10,7 +11,8 @@ const Home = () => {
         <div className="logo">JCCK</div>
         <input className="searchBar" type="text" placeholder="Search" />
         <nav className="nav">
-          <a href="./components/khoa/ProductList.jsx" className="navLink">Products</a>
+        <Link to="/products" className="navLink">Products</Link>
+
           <a href="#about" className="navLink">About</a>
           <a href="#contact" className="navLink">Contact</a>
         </nav>

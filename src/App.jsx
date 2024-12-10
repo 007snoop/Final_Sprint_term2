@@ -1,12 +1,21 @@
 import React from "react";
-import Home from "./components/cody/Home.jsx"; // Import the Home component
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./components/cody/Home.jsx";
+import ProductList from "./components/khoa/ProductList.jsx";
+import { ShoppingCartProvider } from './components/khoa/ShoppingCartContext.jsx'; // Adjust the path if needed
 
-function App() {
+
+const App = () => {
   return (
-    <div>
-      <Home /> {/* Render the Home component */}
-    </div>
+    <Router>
+      <ShoppingCartProvider>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/products" element={<ProductList />} />
+        </Routes>
+      </ShoppingCartProvider>
+    </Router>
   );
-}
+};
 
 export default App;
