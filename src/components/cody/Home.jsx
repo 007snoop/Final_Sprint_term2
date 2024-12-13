@@ -5,29 +5,35 @@ import { Link } from "react-router-dom";
 const Home = () => {
   const [products, setProducts] = useState([]);
   const [showFullDescription, setShowFullDescription] = useState(false);
-  const [highlightedProduct, setHighlightedProduct] = useState(null);  
+  const [highlightedProduct, setHighlightedProduct] = useState(null);
   const toggleDescription = () => {
     setShowFullDescription((prev) => !prev);
   };
 
-  // Fetch products from the JSON API
+  
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch("http://localhost:3001/products"); 
+        const response = await fetch("http://localhost:3001/products");
         const data = await response.json();
         setProducts(data);
       } catch (error) {
         console.error("Error fetching products:", error);
-      };
-    
-      if (products.length > 0) {
-        const randomIndex = Math.floor(Math.random() * products.length);
-        setHighlightedProduct(products[randomIndex]);
       }
     };
     fetchProducts();
-  }, []);
+  }, []); 
+
+  
+  useEffect(() => {
+    if (products.length > 0) {
+      const randomIndex = Math.floor(Math.random() * products.length);
+      setHighlightedProduct(products[randomIndex]);
+    }
+  }, [products]); 
+
+
+  console.log(highlightedProduct);
 
   return (
     <div className="container">
@@ -36,7 +42,7 @@ const Home = () => {
           <div className="logo">JCCK</div>
           <input className="searchBar" type="text" placeholder="Search" />
         </div>
-        <nav className="nav">
+        <nav className="HomeNav">
           <Link to="/products" className="navLink">
             Products
           </Link>
@@ -48,10 +54,6 @@ const Home = () => {
             Contact
           </a>
         </nav>
-        <div className="userIcons">
-          <i className="fas fa-user"></i>
-          <i className="fas fa-shopping-cart"></i>
-        </div>
       </header>
 
       <div className="featureContainer">
@@ -87,6 +89,7 @@ const Home = () => {
           </div>
         )}
       </div>
+      
 
       <div className="carousel">
         {products.slice(0, 6).map((product) => (
@@ -101,8 +104,8 @@ const Home = () => {
               <p>${product.price}</p>
             </Link>
           </div>
-  ))}
-</div>
+        ))}
+      </div>
       <footer className="footer">
         <div>
           <a href="#!" className="footerLink">
