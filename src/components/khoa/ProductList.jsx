@@ -4,6 +4,7 @@ import { useShoppingCart } from './ShoppingCartContext';
 import useApiFetch from './useApiFetch';
 import './ProductList.css';
 
+
 const ProductList = () => {
   const { categoryName } = useParams();
   const { addToCart } = useShoppingCart();
@@ -31,7 +32,19 @@ const ProductList = () => {
 
   return (
     <div className="products-container">
-      <h1>{categoryName ? categoryName : 'All Products'}</h1>
+      <header className="header">
+        <div className="logo">JCCK</div>
+        
+        <nav className="nav">
+          <Link to="/" className="navLink">Home</Link>
+        <Link to="/products" className="navLink">Products</Link>
+
+          <a href="#about" className="navLink">About</a>
+          <a href="#contact" className="navLink">Contact</a>
+        </nav>
+        
+      </header>
+      
       <div className="search-container">
         <input
           className="search-input"
@@ -46,7 +59,6 @@ const ProductList = () => {
           <div key={product.id} className="product-card">
             <img className="product-image" src={product.image} alt={product.name} />
             <h3>{product.name}</h3>
-            <p className="product-description">{product.description}</p>
             <p className="product-price">${product.price}</p>
             <Link className="product-link" to={`/products/${product.id}`}>
               View Details

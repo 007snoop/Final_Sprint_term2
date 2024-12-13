@@ -1,6 +1,6 @@
 /* General Styles */
 body {
-  height: 1000px;
+  height: auto;
   background-color: rgb(18, 18, 27);
   background: linear-gradient(to bottom, rgb(21, 21, 26), rgb(52, 52, 59))
 }
@@ -8,114 +8,156 @@ body {
     font-family: Arial, sans-serif;
   }
   
-  /* Header Section */
-  .header {
-    display: flex;
-    align-items: left;
-    padding: 10px 20px;
-    background-color: rgba(51, 51, 51, 0.5); /* Semi-transparent background */
-    color: #fff;
+.header {
+  display: flex;
+  padding: 10px 20px;
+  background-color: rgba(51, 51, 51, 0.5); 
+  color: #fff;
+  }
+
+.header-left {
+  display: flex;
+  gap: 20px; 
+  flex: 1; 
   }
   
-  .logo {
-    width: 150px;
-    font-size: 24px;
-    font-weight: bold;
+.logo {
+  width: 150px;
+  font-size: 24px;
+  align-items: left;
+  font-weight: bold;
   }
   
-  .searchBar {
-    padding: 5px;
-    margin-right: 100px;
-    width: 200px;
+.searchBar {
+  padding: 5px;
+  width: 200px;
   }
   
-  .nav {
-    width: 300px;
-    display: flex;
-    gap: 115px;
-    align-items: center;
+.nav {
+  width: 250px;
+  display: flex;
+  gap: 80px;
+  align-items: center;
+  flex: 1;
   }
   
-  .navLink {
-    color: #fff;
-    text-decoration: none;
+.navLink {
+  color: #fff;
+  text-decoration: none;
   }
   
-  .userIcons {
-    display: flex;
-    gap: 10px;
-  }
   
-  .featureContainer {
-    display: flex;
-    gap: 20px;
-    padding: 20px;
+.featureContainer {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
   
   }
   
-  .banner {
-    flex: 1;
-    text-align: center;
-    background-color: rgba(139, 139, 139, 0.5);
-    padding: 20px;
-    color: black;
+.banner {
+  height: auto;
+  flex: 1;
+  justify-content: center;
+  text-align: center;
+  background-color: rgba(139, 139, 139, 0.5);
+  padding: 20px;
+  color: black;
   }
   
-  .productHighlight {
-    flex: 1;
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    background-color: rgba(139, 139, 139, 0.5);
-    padding: 10px;
-    color: black;
+.productHighlight {
+  flex: 1;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  background-color: rgba(139, 139, 139, 0.5);
+  padding: 10px;
+  color: black;
   }
   
-  .image {
-    width: 150px;
-    height: 150px;
-    border-radius: 10px;
+.image {
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
   }
   
-  /* Carousel Section */
   .carousel {
     display: flex;
     gap: 15px;
-    justify-content: center;
+    justify-content: flex-start; /* Align items to the left */
     align-items: center;
-    margin: 0 auto;
+    margin: 20px auto;
     padding: 20px;
-    max-width: 90%;
-    height: 400px;
+    max-width: 90%; /* Limit the width of the carousel */
+    overflow-x: auto; /* Hide content spilling outside */
+    position: relative;
     background-color: rgba(139, 139, 139, 0.5);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   }
+
+.carousel::-webkit-scrollbar {
+  height: 8px; 
+}
+
+.carousel::-webkit-scrollbar-thumb {
+  background-color: rgba(51, 51, 51, 0.8);
+  border-radius: 4px;
+}
+
+.carousel::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.productCard {
+  flex: 0 0 auto;
+  width: 200px; 
+  height: 350px; 
+  background-color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  justify-content: space-between; 
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  box-sizing: border-box; 
+  transition: transform 0.3s ease-in-out;
+}
+
+.productImage {
+  max-width: 100%; 
+  max-height: 70%; 
+  object-fit: contain; 
+  border-radius: 8px; 
+}
+
+.productCard h3 {
+  font-size: 16px;
+  margin: 10px 0 5px; 
+  text-align: center;
+}
+
+.productCard p {
+  font-size: 14px;
+  color: #333;
+  text-align: center;
+}
+
+.productCard:hover {
+  transform: scale(1.05); 
+}
+
+.footer {
+  width: 100%;
+  padding: 20px;
+  background-color: rgba(51, 51, 51, 0.5); 
+  color: #fff;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+}
   
-  .productCard {
-    flex: 0 0 auto;
-    width: 200px;
-    height: 350px;
-    background-color: rgba(255, 255, 255, 0.9);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-  }
-  
-  /* Footer Section */
-  .footer {
-    width: 100%;
-    padding: 20px;
-    background-color: rgba(51, 51, 51, 0.5); /* Semi-transparent background */
-    color: #fff;
-    text-align: center;
-    position: fixed;
-    bottom: 0;
-  }
-  
-  .footerLink {
-    color: #fff;
-    text-decoration: none;
-  }
+.footerLink {
+  color: #fff;
+  text-decoration: none;
+}
   
