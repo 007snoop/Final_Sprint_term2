@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import "./styles/Home.css";
 import { Link } from "react-router-dom";
 
+
 const Home = () => {
   const [products, setProducts] = useState([]);
   const [showFullDescription, setShowFullDescription] = useState(false);
   const [highlightedProduct, setHighlightedProduct] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
   const toggleDescription = () => {
     setShowFullDescription((prev) => !prev);
   };
@@ -19,7 +21,7 @@ const Home = () => {
         setProducts(data);
       } catch (error) {
         console.error("Error fetching products:", error);
-      }
+      };
     };
     fetchProducts();
   }, []); 
@@ -38,23 +40,27 @@ const Home = () => {
   return (
     <div className="container">
       <header className="header">
-        <div className="header-left">
-          <div className="logo">JCCK</div>
-          <input className="searchBar" type="text" placeholder="Search" />
-        </div>
-        <nav className="HomeNav">
-          <Link to="/products" className="navLink">
-            Products
-          </Link>
+        
+        <div className="logo">JCCK</div>
+        
+        <nav className="nav">
+          <Link to="/" className="navLink">Home</Link>
+        <Link to="/products" className="navLink">Products</Link>
 
-          <a href="#about" className="navLink">
-            About
-          </a>
-          <a href="#contact" className="navLink">
-            Contact
-          </a>
+          <a href="#about" className="navLink">About</a>
+          <a href="#contact" className="navLink">Contact</a>
         </nav>
+       
       </header>
+      <div className="search-container">
+        <input
+          className="search-input"
+          type="text"
+          placeholder="Search products..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+      </div>
 
       <div className="featureContainer">
         <div className="banner">

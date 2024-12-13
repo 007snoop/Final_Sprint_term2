@@ -72,6 +72,22 @@ const ProductList = () => {
           </div>
         ))}
       </div>
+      <footer className="footer">
+        <div>
+          <a href="#!" className="footerLink">
+            Facebook
+          </a>{" "}
+          |
+          <a href="#!" className="footerLink">
+            Instagram
+          </a>{" "}
+          |
+          <a href="#!" className="footerLink">
+            LinkedIn
+          </a>
+        </div>
+        <div>Email: jcck@gmail.com | Phone: (709) 123-5555</div>
+      </footer>
     </div>
   );
 };
