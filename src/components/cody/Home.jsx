@@ -64,9 +64,9 @@ const Home = () => {
 
       <div className="featureContainer">
         <div className="banner">
-          <h1>Big Sale</h1>
-          <p>Up to 50% Off</p>
-          <p>Happening Now</p>
+          <h1>Featured Toy</h1>
+          <p>View our featured</p>
+          <p>toy now!</p>
         </div>
         {highlightedProduct && (
           <div className="productHighlight">
